@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOA", "MyOA\MyOA.csproj", "{26FD5720-B0A9-43A9-ACF1-6923ABA8E13E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyOA", "MyOA\MyOA.csproj", "{26FD5720-B0A9-43A9-ACF1-6923ABA8E13E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{6357DD66-3AB1-4E77-BB58-E3C763FDF05B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{26FD5720-B0A9-43A9-ACF1-6923ABA8E13E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26FD5720-B0A9-43A9-ACF1-6923ABA8E13E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26FD5720-B0A9-43A9-ACF1-6923ABA8E13E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6357DD66-3AB1-4E77-BB58-E3C763FDF05B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6357DD66-3AB1-4E77-BB58-E3C763FDF05B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6357DD66-3AB1-4E77-BB58-E3C763FDF05B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6357DD66-3AB1-4E77-BB58-E3C763FDF05B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

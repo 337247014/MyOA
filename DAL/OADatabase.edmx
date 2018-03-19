@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OADatabase.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="OADatabaseStoreContainer">
+    <EntitySet Name="Stationeries" EntityType="OADatabase.Store.Stationeries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Inventories" EntityType="OADatabase.Store.Inventories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stationery_Inventory" EntityType="OADatabase.Store.Stationery_Inventory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Orders" EntityType="OADatabase.Store.Orders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Accounts" EntityType="OADatabase.Store.Accounts" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="Stationery_InventoryStationery" Association="OADatabase.Store.Stationery_InventoryStationery">
+      <End Role="Stationery_Inventory" EntitySet="Stationery_Inventory" />
+      <End Role="Stationery" EntitySet="Stationeries" />
+    </AssociationSet>
+    <AssociationSet Name="Stationery_InventoryInventory" Association="OADatabase.Store.Stationery_InventoryInventory">
+      <End Role="Stationery_Inventory" EntitySet="Stationery_Inventory" />
+      <End Role="Inventory" EntitySet="Inventories" />
+    </AssociationSet>
+    <AssociationSet Name="OrderAccount" Association="OADatabase.Store.OrderAccount">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Account" EntitySet="Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="OrderStationery" Association="OADatabase.Store.OrderStationery">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Stationery" EntitySet="Stationeries" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Stationeries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Color" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Size" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="IsBelongToGroup" Type="bit" Nullable="false" />
+    <Property Name="Photo" Type="varbinary(max)" Nullable="true" />
+    <Property Name="CreateDate" Type="datetime" Nullable="true" />
+    <Property Name="CreateUser" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="true" />
+    <Property Name="UpdateUser" Type="nvarchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Inventories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="RemainingAmount" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="CreateDate" Type="datetime" Nullable="true" />
+    <Property Name="CreateUser" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="true" />
+    <Property Name="UpdateUser" Type="nvarchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Stationery_Inventory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Stationery_Id" Type="int" Nullable="false" />
+    <Property Name="Inventory_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="IsBelongToGroup" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="true" />
+    <Property Name="CreateUser" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="true" />
+    <Property Name="UpdateUser" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Account_Id" Type="int" Nullable="true" />
+    <Property Name="Stationery_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Budget" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RemainingBudget" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsGroupApplicant" Type="bit" Nullable="false" />
+    <Property Name="IsAdmin" Type="bit" Nullable="false" />
+    <Property Name="Photo" Type="varbinary(max)" Nullable="true" />
+    <Property Name="CreateDate" Type="datetime" Nullable="true" />
+    <Property Name="CreateUser" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="true" />
+    <Property Name="UpdateUser" Type="nvarchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <Association Name="Stationery_InventoryStationery">
+    <End Role="Stationery_Inventory" Type="OADatabase.Store.Stationery_Inventory" Multiplicity="*" />
+    <End Role="Stationery" Type="OADatabase.Store.Stationeries" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stationery">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Stationery_Inventory">
+        <PropertyRef Name="Stationery_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Stationery_InventoryInventory">
+    <End Role="Stationery_Inventory" Type="OADatabase.Store.Stationery_Inventory" Multiplicity="*" />
+    <End Role="Inventory" Type="OADatabase.Store.Inventories" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Inventory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Stationery_Inventory">
+        <PropertyRef Name="Inventory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderAccount">
+    <End Role="Order" Type="OADatabase.Store.Orders" Multiplicity="*" />
+    <End Role="Account" Type="OADatabase.Store.Accounts" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Account_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderStationery">
+    <End Role="Order" Type="OADatabase.Store.Orders" Multiplicity="*" />
+    <End Role="Stationery" Type="OADatabase.Store.Stationeries" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stationery">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Stationery_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="OADatabase" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="OADatabaseContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Stationeries" EntityType="OADatabase.Stationery" />
+          <EntitySet Name="Inventories" EntityType="OADatabase.Inventory" />
+          <EntitySet Name="Stationery_Inventory" EntityType="OADatabase.Stationery_Inventory" />
+          <AssociationSet Name="Stationery_InventoryStationery" Association="OADatabase.Stationery_InventoryStationery">
+            <End Role="Stationery_Inventory" EntitySet="Stationery_Inventory" />
+            <End Role="Stationery" EntitySet="Stationeries" />
+          </AssociationSet>
+          <AssociationSet Name="Stationery_InventoryInventory" Association="OADatabase.Stationery_InventoryInventory">
+            <End Role="Stationery_Inventory" EntitySet="Stationery_Inventory" />
+            <End Role="Inventory" EntitySet="Inventories" />
+          </AssociationSet>
+          <EntitySet Name="Orders" EntityType="OADatabase.Order" />
+          <EntitySet Name="Accounts" EntityType="OADatabase.Account" />
+          <AssociationSet Name="OrderAccount" Association="OADatabase.OrderAccount">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="OrderStationery" Association="OADatabase.OrderStationery">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Stationery" EntitySet="Stationeries" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Stationery">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="255" />
+          <Property Name="Color" Type="String" Nullable="true" MaxLength="50" />
+          <Property Name="Size" Type="String" Nullable="true" MaxLength="50" />
+          <NavigationProperty Name="Stationery_Inventory" Relationship="OADatabase.Stationery_InventoryStationery" FromRole="Stationery" ToRole="Stationery_Inventory" />
+          <Property Name="Description" Type="String" Nullable="true" />
+          <Property Name="IsBelongToGroup" Type="Boolean" Nullable="false" />
+          <Property Name="Photo" Type="Binary" Nullable="true" />
+          <NavigationProperty Name="Order" Relationship="OADatabase.OrderStationery" FromRole="Stationery" ToRole="Order" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="true" />
+          <Property Name="CreateUser" Type="String" Nullable="true" MaxLength="100" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="true" />
+          <Property Name="UpdateUser" Type="String" Nullable="true" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="Int32" Nullable="false" DefaultValue="0" />
+          <Property Name="RemainingAmount" Type="Int32" Nullable="false" DefaultValue="0" />
+          <NavigationProperty Name="Stationery_Inventory" Relationship="OADatabase.Stationery_InventoryInventory" FromRole="Inventory" ToRole="Stationery_Inventory" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="true" />
+          <Property Name="CreateUser" Type="String" Nullable="true" MaxLength="100" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="true" />
+          <Property Name="UpdateUser" Type="String" Nullable="true" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Stationery_Inventory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Stationery" Relationship="OADatabase.Stationery_InventoryStationery" FromRole="Stationery_Inventory" ToRole="Stationery" />
+          <NavigationProperty Name="Inventory" Relationship="OADatabase.Stationery_InventoryInventory" FromRole="Stationery_Inventory" ToRole="Inventory" />
+        </EntityType>
+        <Association Name="Stationery_InventoryStationery">
+          <End Type="OADatabase.Stationery_Inventory" Role="Stationery_Inventory" Multiplicity="1" />
+          <End Type="OADatabase.Stationery" Role="Stationery" Multiplicity="1" />
+        </Association>
+        <Association Name="Stationery_InventoryInventory">
+          <End Type="OADatabase.Stationery_Inventory" Role="Stationery_Inventory" Multiplicity="1" />
+          <End Type="OADatabase.Inventory" Role="Inventory" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" Nullable="true" MaxLength="50" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="IsBelongToGroup" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="OADatabase.OrderAccount" FromRole="Order" ToRole="Account" />
+          <NavigationProperty Name="Stationery" Relationship="OADatabase.OrderStationery" FromRole="Order" ToRole="Stationery" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="true" />
+          <Property Name="CreateUser" Type="String" Nullable="true" MaxLength="100" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="true" />
+          <Property Name="UpdateUser" Type="String" Nullable="true" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="Budget" Type="String" Nullable="false" />
+          <Property Name="RemainingBudget" Type="String" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="OADatabase.OrderAccount" FromRole="Account" ToRole="Order" />
+          <Property Name="IsGroupApplicant" Type="Boolean" Nullable="false" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="Photo" Type="Binary" Nullable="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="true" />
+          <Property Name="CreateUser" Type="String" Nullable="true" MaxLength="100" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="true" />
+          <Property Name="UpdateUser" Type="String" Nullable="true" MaxLength="100" />
+        </EntityType>
+        <Association Name="OrderAccount">
+          <End Type="OADatabase.Order" Role="Order" Multiplicity="*" />
+          <End Type="OADatabase.Account" Role="Account" Multiplicity="0..1" />
+        </Association>
+        <Association Name="OrderStationery">
+          <End Type="OADatabase.Order" Role="Order" Multiplicity="1" />
+          <End Type="OADatabase.Stationery" Role="Stationery" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OADatabaseStoreContainer" CdmEntityContainer="OADatabaseContainer">
+    <EntitySetMapping Name="Stationeries">
+      <EntityTypeMapping TypeName="IsTypeOf(OADatabase.Stationery)">
+        <MappingFragment StoreEntitySet="Stationeries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsBelongToGroup" ColumnName="IsBelongToGroup" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventories">
+      <EntityTypeMapping TypeName="IsTypeOf(OADatabase.Inventory)">
+        <MappingFragment StoreEntitySet="Inventories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="RemainingAmount" ColumnName="RemainingAmount" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stationery_Inventory">
+      <EntityTypeMapping TypeName="IsTypeOf(OADatabase.Stationery_Inventory)">
+        <MappingFragment StoreEntitySet="Stationery_Inventory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="IsTypeOf(OADatabase.Order)">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="IsBelongToGroup" ColumnName="IsBelongToGroup" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="IsTypeOf(OADatabase.Account)">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Budget" ColumnName="Budget" />
+          <ScalarProperty Name="RemainingBudget" ColumnName="RemainingBudget" />
+          <ScalarProperty Name="IsGroupApplicant" ColumnName="IsGroupApplicant" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Stationery_InventoryStationery" TypeName="OADatabase.Stationery_InventoryStationery" StoreEntitySet="Stationery_Inventory">
+      <EndProperty Name="Stationery">
+        <ScalarProperty Name="Id" ColumnName="Stationery_Id" />
+      </EndProperty>
+      <EndProperty Name="Stationery_Inventory">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Stationery_InventoryInventory" TypeName="OADatabase.Stationery_InventoryInventory" StoreEntitySet="Stationery_Inventory">
+      <EndProperty Name="Inventory">
+        <ScalarProperty Name="Id" ColumnName="Inventory_Id" />
+      </EndProperty>
+      <EndProperty Name="Stationery_Inventory">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OrderAccount" TypeName="OADatabase.OrderAccount" StoreEntitySet="Orders">
+      <EndProperty Name="Account">
+        <ScalarProperty Name="Id" ColumnName="Account_Id" />
+      </EndProperty>
+      <EndProperty Name="Order">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="Account_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OrderStationery" TypeName="OADatabase.OrderStationery" StoreEntitySet="Orders">
+      <EndProperty Name="Stationery">
+        <ScalarProperty Name="Id" ColumnName="Stationery_Id" />
+      </EndProperty>
+      <EndProperty Name="Order">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
