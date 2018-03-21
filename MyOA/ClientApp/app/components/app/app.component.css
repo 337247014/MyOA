@@ -4,3 +4,16 @@
         padding-top: 50px;
     }
 }
+
+.backgroundScale {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.footer {
+    background-color: #ff7a00;
+    color: #fff;
+    /*height: 15vh;*/ 
+    text-align: center;
+}

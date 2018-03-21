@@ -10,3 +10,5 @@ DAL/obj/Debug/TempPE/OADatabase.Designer.cs.dll
 DAL/obj/Debug/TempPE/OADatabase.Context.cs.dll
 DAL/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 DAL/obj/Debug/DAL.csproj.CoreCompileInputs.cache
+.vs/config/applicationhost.config
+.vs/MyOA/v15/.suo

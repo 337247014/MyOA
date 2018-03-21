@@ -10,12 +10,19 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 
+import { OfficeSuppliesComponent } from './components/office-supplies/office-supplies.component';
+import { CartComponent } from './components/cart/cart.component';
+import { FooterComponent } from './components/common/footer.component';
+
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
         CounterComponent,
         FetchDataComponent,
+        OfficeSuppliesComponent,
+        CartComponent,
+        FooterComponent,
         HomeComponent
     ],
     imports: [
@@ -27,6 +34,8 @@ import { CounterComponent } from './components/counter/counter.component';
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'office-supplies', component: OfficeSuppliesComponent },
+            { path: 'cart', component: CartComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]

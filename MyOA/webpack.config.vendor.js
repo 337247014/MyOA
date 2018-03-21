@@ -20,6 +20,7 @@ const nonTreeShakableModules = [
     'es6-promise',
     'es6-shim',
     'event-source-polyfill',
+    'popper.js',
     'jquery',
 ];
 const allModules = treeShakableModules.concat(nonTreeShakableModules);
