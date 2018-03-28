@@ -11,6 +11,7 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 
 import { OfficeSuppliesComponent } from './components/office-supplies/office-supplies.component';
+import { TeamOfficeSuppliesComponent } from './components/office-supplies/team-office-supplies.component';
 import { CartComponent } from './components/cart/cart.component';
 import { FooterComponent } from './components/common/footer.component';
 
@@ -21,6 +22,7 @@ import { FooterComponent } from './components/common/footer.component';
         CounterComponent,
         FetchDataComponent,
         OfficeSuppliesComponent,
+        TeamOfficeSuppliesComponent,
         CartComponent,
         FooterComponent,
         HomeComponent
@@ -35,6 +37,7 @@ import { FooterComponent } from './components/common/footer.component';
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'office-supplies', component: OfficeSuppliesComponent },
+            { path: 'team-office-supplies', component: TeamOfficeSuppliesComponent },
             { path: 'cart', component: CartComponent },
             { path: '**', redirectTo: 'home' }
         ])

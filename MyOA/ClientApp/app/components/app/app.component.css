@@ -11,6 +11,10 @@
     background-repeat: no-repeat !important;
 }
 
+.nav-font-size{
+    font-size:1.3em;
+}
+
 .footer {
     background-color: #ff7a00;
     color: #fff;
