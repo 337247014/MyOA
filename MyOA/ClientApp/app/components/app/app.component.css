@@ -11,6 +11,31 @@
     background-repeat: no-repeat !important;
 }
 
+.nav-font-size{
+    font-size:1.3em;
+}
+
+.margin-bottom-15vh {
+    margin-bottom: 15vh !important;
+}
+
+.content-center {
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+}
+
+.table .thead-primary th {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    text-align:center;
+}
+
+.table tbody th {
+    text-align: center !important;
+}
+
 .footer {
     background-color: #ff7a00;
     color: #fff;

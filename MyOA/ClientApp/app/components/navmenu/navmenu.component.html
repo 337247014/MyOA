@@ -9,27 +9,43 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item" [routerLinkActive]="['link-active']">
                     <a class="nav-link" [routerLink]="['/home']">
-                        <span class='glyphicon glyphicon-home'></span> Home
+                        <i class="fa fa-home fa-2x" aria-hidden="true"></i> <span class="nav-font-size">Home</span>
                     </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Office Supplies
+                        <i class="fa fa-paperclip fa-2x"></i> <span class="nav-font-size">Supplies</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Team Group</a>
-                        <a class="dropdown-item" [routerLink]="['/office-supplies']">Employee</a>
+                        <a class="dropdown-item" [routerLink]="['/office-supplies']"><i class="fa fa-user fa-fw"></i> Employee</a>
+                        <a class="dropdown-item" [routerLink]="['/team-office-supplies']"><i class="fa fa-users fa-fw"></i> Team Group</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarAdmin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-balance-scale fa-2x"></i> <span class="nav-font-size">Admin</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarAdmin">
+                        <a class="dropdown-item" [routerLink]="['/inventory']"><i class="fa fa-sitemap fa-fw"></i> Inventory</a>
+                        <a class="dropdown-item" [routerLink]="['/order-form']"><i class="fa fa-th-list fa-fw"></i> Order Form</a>
+                        <a class="dropdown-item" [routerLink]="['/order-history']"><i class="fa fa-list-ol fa-fw"></i> Order History</a>
                     </div>
                 </li>
                 <li class="nav-item" [routerLinkActive]="['link-active']">
-                    <a class="nav-link" [routerLink]="['/fetch-data']">
-                        <span class='glyphicon glyphicon-th-list'></span> Fetch data
+                    <a class="nav-link" [routerLink]="['/cart']">
+                        <span class="fa fa-shopping-cart fa-2x"><span class="badge badge-light align-top" style="font-size:30% !important;">0</span></span><span class="nav-font-size">Cart</span>
                     </a>
                 </li>
-                <li class="nav-item" [routerLinkActive]="['link-active']">
-                    <a class="nav-link" [routerLink]="['/cart']">
-                        <span class='glyphicon glyphicon-education'></span>Cart
+            </ul>
+            <ul class="navbar-nav mr-auto" style="margin-right:1.5rem !important;">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarAccount" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user-circle fa-2x"></i> <span class="nav-font-size">Account</span>
                     </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarAccount">
+                        <a class="dropdown-item" [routerLink]="['/user-profile']"><i class="fa fa-address-book fa-fw"></i> Profile</a>
+                        <a class="dropdown-item" [routerLink]="['/personal-order-history']"><i class="fa fa-list-ol fa-fw"></i> Order History</a>
+                    </div>
                 </li>
             </ul>
             <select style="margin-right:20px;">
