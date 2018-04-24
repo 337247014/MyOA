@@ -50,6 +50,7 @@
     "karma-cli": "1.0.1",
     "karma-jasmine": "1.1.1",
     "karma-webpack": "3.0.0",
+    "ng2-charts": "^1.6.0",
     "popper.js": "1.14.3",
     "preboot": "6.0.0-beta.3",
     "raw-loader": "0.5.1",

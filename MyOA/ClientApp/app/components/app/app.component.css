@@ -11,6 +11,40 @@
     background-repeat: no-repeat !important;
 }
 
+.background-image-url {
+    background-image: url('../images/06.jpg');
+}
+
+.heightFullscreen {
+    height: 100vh;
+}
+
+.screen-70 {
+    height: 70vh;
+}
+
+.widthFullscreen {
+    width: 100vw;
+}
+
+.center {
+    justify-content: center !important;
+    align-content: center !important;
+    display: inline-flex;
+    align-items: center !important;
+}
+
+.vertical-center {
+    align-content: center !important;
+    align-items: center !important;
+    display: inline-flex;
+}
+
+.padding-0{
+    padding-left:0 !important;
+    padding-right:0 !important;
+}
+
 .nav-font-size{
     font-size:1.3em;
 }
@@ -34,6 +68,10 @@
 
 .table tbody th {
     text-align: center !important;
+}
+
+.min-height {
+    min-height: 74vh !important;
 }
 
 .footer {
