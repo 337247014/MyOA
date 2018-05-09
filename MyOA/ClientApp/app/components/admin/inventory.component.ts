@@ -19,6 +19,10 @@ export class InventoryComponent {
         });
     }
 
+    openWindowCustomClass(content: any) {
+        this.modalService.open(content, { size: 'lg' });
+    }
+
     private getDismissReason(reason: any): string {
         if (reason === ModalDismissReasons.ESC) {
             return 'by pressing ESC';

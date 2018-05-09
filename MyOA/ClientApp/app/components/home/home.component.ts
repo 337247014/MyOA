@@ -55,6 +55,12 @@ export class HomeComponent implements OnInit  {
     public lineChartType: string = 'line';
     // lineChart configration
 
+    // Doughnut configration
+    public doughnutChartLabels: string[] = ['Pen', 'Notebook', 'Sticky Note'];
+    public doughnutChartData: number[] = [3, 1, 2];
+    public doughnutChartType: string = 'doughnut';
+    // Doughnut configration
+
     public images: Array<string> = ['../images/01.jpg', '../images/06.jpg', '../images/07.jpg'];
 
     ngOnInit() {

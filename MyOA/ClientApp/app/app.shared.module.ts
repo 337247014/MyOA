@@ -16,6 +16,7 @@ import { OrderFormComponent } from './components/admin/order-form.component';
 import { OrderHistoryComponent } from './components/admin/order-history.component';
 import { ProfileComponent } from './components/account/profile.component';
 import { PersonalOrderHistoryComponent } from './components/account/personal-order-history.component';
+import { MyOrderComponent } from './components/account/my-order.component';
 import { CartComponent } from './components/cart/cart.component';
 import { FooterComponent } from './components/common/footer.component';
 
@@ -31,6 +32,7 @@ import { FooterComponent } from './components/common/footer.component';
         OrderHistoryComponent,
         ProfileComponent,
         PersonalOrderHistoryComponent,
+        MyOrderComponent,
         CartComponent,
         FooterComponent
     ],
@@ -50,6 +52,7 @@ import { FooterComponent } from './components/common/footer.component';
             { path: 'order-history', component: OrderHistoryComponent },
             { path: 'user-profile', component: ProfileComponent },
             { path: 'personal-order-history', component: PersonalOrderHistoryComponent },
+            { path: 'my-order', component: MyOrderComponent },
             { path: 'cart', component: CartComponent },
             { path: '**', redirectTo: 'home' }
         ])

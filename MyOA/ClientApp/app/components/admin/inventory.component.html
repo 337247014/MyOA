@@ -1,25 +1,67 @@
 ﻿<h2 class="text-center">Inventory Management</h2>
 
 <ng-template #content let-c="close" let-d="dismiss">
-    <div class="modal-header">
-        <h4 class="modal-title">Modal title</h4>
+    <div class="modal-header width-80">
+        <h4 class="modal-title">Add New Stationary</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
-        <p>One fine body&hellip;</p>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text input-title-width" id="inputGroup-sizing-default">Title</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text input-title-width" id="inputGroup-sizing-default">Price</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text input-title-width" for="inputGroupSelect01">Type</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Choose Type...</option>
+                <option value="1">Employee</option>
+                <option value="2">Team Group</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text input-title-width" id="inputGroup-sizing-default">Total Amount</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text input-title-width" id="inputGroup-sizing-default">Color</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text input-title-width" for="inputGroupSelect01">Size</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Choose Size...</option>
+                <option value="1">Small</option>
+                <option value="1">Medium</option>
+                <option value="2">Big</option>
+            </select>
+        </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Submit</button>
     </div>
 </ng-template>
 
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
-
 <div class="row" style="margin-bottom:3vh;">
     <div class="col-sm-3">
-        <button type="button" class="btn btn-success">Add New Stationary</button>
+        <button type="button" class="btn btn-outline-success" (click)="openWindowCustomClass(content)">Add New Stationary</button>
     </div>
 </div>
 <div class="row">

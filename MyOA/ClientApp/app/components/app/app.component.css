@@ -74,9 +74,20 @@
     min-height: 74vh !important;
 }
 
+.title{
+    font-size:1.2em;
+    font-weight:bolder;
+}
+
+.input-title-width{
+    width:8rem;
+}
+
+
 .footer {
     background-color: #ff7a00;
     color: #fff;
     /*height: 15vh;*/ 
     text-align: center;
 }
+
