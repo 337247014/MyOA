@@ -11,16 +11,20 @@ export class InventoryComponent {
 
     constructor(private modalService: NgbModal) { }
 
+    addStationary(content: any) {
+        this.modalService.open(content, { size: 'lg' });
+    }
+
+    updateStationary(content: any) {
+        this.modalService.open(content, { size: 'lg' });
+    }
+
     open(content: any) {
         this.modalService.open(content).result.then((result) => {
             this.closeResult = `Closed with: ${result}`;
         }, (reason) => {
             this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         });
-    }
-
-    openWindowCustomClass(content: any) {
-        this.modalService.open(content, { size: 'lg' });
     }
 
     private getDismissReason(reason: any): string {

@@ -1,6 +1,7 @@
 ﻿<h2 class="text-center">Inventory Management</h2>
 
-<ng-template #content let-c="close" let-d="dismiss">
+<!--add new Stationary-->
+<ng-template #addContent let-c="close" let-d="dismiss">
     <div class="modal-header width-80">
         <h4 class="modal-title">Add New Stationary</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -13,6 +14,15 @@
                 <span class="input-group-text input-title-width" id="inputGroup-sizing-default">Title</span>
             </div>
             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text input-title-width">Photo</span>
+            </div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="igfPhoto">
+                <label class="custom-file-label" for="igfPhoto">Choose file</label>
+            </div>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -56,12 +66,83 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Submit</button>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Cancel</button>
+    </div>
+</ng-template>
+
+<!--update-->
+<ng-template #updateContent let-c="close" let-d="dismiss">
+    <div class="modal-header width-80">
+        <h4 class="modal-title">Update Stationary</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text input-title-width" id="inputGroup-sizing-default">Title</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text input-title-width">Photo</span>
+            </div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="igfPhoto">
+                <label class="custom-file-label" for="igfPhoto">Choose file</label>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text input-title-width" id="inputGroup-sizing-default">Price</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text input-title-width" for="inputGroupSelect01">Type</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Choose Type...</option>
+                <option value="1">Employee</option>
+                <option value="2">Team Group</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text input-title-width" id="inputGroup-sizing-default">Total Amount</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text input-title-width" id="inputGroup-sizing-default">Color</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text input-title-width" for="inputGroupSelect01">Size</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Choose Size...</option>
+                <option value="1">Small</option>
+                <option value="1">Medium</option>
+                <option value="2">Big</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Update</button>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Cancel</button>
     </div>
 </ng-template>
 
 <div class="row" style="margin-bottom:3vh;">
     <div class="col-sm-3">
-        <button type="button" class="btn btn-outline-success" (click)="openWindowCustomClass(content)">Add New Stationary</button>
+        <button type="button" class="btn btn-outline-success" (click)="addStationary(addContent)">Add New Stationary</button>
     </div>
 </div>
 <div class="row">
@@ -93,7 +174,8 @@
                 </li>
             </ul>
             <div class="card-footer content-center">
-                <a href="#" class="btn btn-success">Update</a>
+                <button type="button" class="btn btn-outline-success" (click)="updateStationary(updateContent)">Update</button>
+                <button type="button" class="btn btn-outline-success" style="margin-left:1rem;">Delete</button>
             </div>
         </div>
     </div>
