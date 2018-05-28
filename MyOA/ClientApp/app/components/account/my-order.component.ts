@@ -7,6 +7,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
     styleUrls: ['../app/app.component.css']
 })
 export class MyOrderComponent {
+    curentPage = 1;
     constructor(private modalService: NgbModal) { }
 
     checkOrderDetail(content: any) {

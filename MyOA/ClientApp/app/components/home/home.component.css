@@ -21,4 +21,18 @@
 .circle-phone:hover .circle-phone-inner {
     display: inline-flex;
 }
+
+.text-heading1{
+    font-weight:400 !important;
+    font-size:46px !important;
+    line-height:1.22 !important;
+    color:#fff !important;
+}
+
+.text-heading2{
+    font-weight:500 !important;
+    font-size:18px !important;
+    line-height:1.33 !important;
+    color:#fff !important;
+}
 /*header*/

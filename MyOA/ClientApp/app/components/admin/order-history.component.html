@@ -1,163 +1,166 @@
-﻿<!--order detail-->
-<ng-template #orderDetail let-c="close" let-d="dismiss">
-    <div class="modal-header">
-        <h4 class="modal-title">Order Detail</h4>
-        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <div class="row justify-content-center">
-            <div class="col-6" style="margin-bottom:2rem;">
-                <div class="card">
-                    <img class="card-img-top backgroundScale" src="../images/calendar.jpg" alt="Card image cap" style="height:20vh;width:auto">
-                    <div class="card-body">
-                        <h5 class="card-title">Pen</h5>
-                        <p class="card-text">this is a red Pen</p>
+﻿<div class="min-height">
+    <!--order detail-->
+    <ng-template #orderDetail let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title">Order Detail</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row justify-content-center">
+                <div class="col-6" style="margin-bottom:2rem;">
+                    <div class="card">
+                        <img class="card-img-top backgroundScale" src="../images/calendar.jpg" alt="Card image cap" style="height:20vh;width:auto">
+                        <div class="card-body">
+                            <h5 class="card-title">Pen</h5>
+                            <p class="card-text">this is a red Pen</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="input-group" style="margin-bottom:0.5rem;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width:10rem;">Price:</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="0" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width:10rem;">Claim Amount:</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="0" readonly aria-label="Claim Amount" aria-describedby="basic-addon2">
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <div class="input-group" style="margin-bottom:0.5rem;">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" style="width:10rem;">Price:</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="0" readonly>
-                            </div>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" style="width:10rem;">Claim Amount:</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="0" readonly aria-label="Claim Amount" aria-describedby="basic-addon2">
-                            </div>
-                        </li>
-                    </ul>
                 </div>
-            </div>
 
-            <div class="col-6" style="margin-bottom:2rem;">
-                <div class="card">
-                    <img class="card-img-top backgroundScale" src="../images/calendar.jpg" alt="Card image cap" style="height:20vh;width:auto">
-                    <div class="card-body">
-                        <h5 class="card-title">Pen</h5>
-                        <p class="card-text">this is a red Pen</p>
+                <div class="col-6" style="margin-bottom:2rem;">
+                    <div class="card">
+                        <img class="card-img-top backgroundScale" src="../images/calendar.jpg" alt="Card image cap" style="height:20vh;width:auto">
+                        <div class="card-body">
+                            <h5 class="card-title">Pen</h5>
+                            <p class="card-text">this is a red Pen</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="input-group" style="margin-bottom:0.5rem;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width:10rem;">Price:</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="0" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width:10rem;">Claim Amount:</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="0" readonly aria-label="Claim Amount" aria-describedby="basic-addon2">
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <div class="input-group" style="margin-bottom:0.5rem;">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" style="width:10rem;">Price:</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="0" readonly>
-                            </div>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" style="width:10rem;">Claim Amount:</span>
-                                </div>
-                                <input type="text" class="form-control text-center" placeholder="0" readonly aria-label="Claim Amount" aria-describedby="basic-addon2">
-                            </div>
-                        </li>
-                    </ul>
                 </div>
-            </div>
 
-            <div class="col-6" style="margin-bottom:2rem;">
-                <div class="card">
-                    <img class="card-img-top backgroundScale" src="../images/calendar.jpg" alt="Card image cap" style="height:20vh;width:auto">
-                    <div class="card-body">
-                        <h5 class="card-title">Pen</h5>
-                        <p class="card-text">this is a red Pen</p>
+                <div class="col-6" style="margin-bottom:2rem;">
+                    <div class="card">
+                        <img class="card-img-top backgroundScale" src="../images/calendar.jpg" alt="Card image cap" style="height:20vh;width:auto">
+                        <div class="card-body">
+                            <h5 class="card-title">Pen</h5>
+                            <p class="card-text">this is a red Pen</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="input-group" style="margin-bottom:0.5rem;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width:10rem;">Price:</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="0" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width:10rem;">Claim Amount:</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="0" readonly aria-label="Claim Amount" aria-describedby="basic-addon2">
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <div class="input-group" style="margin-bottom:0.5rem;">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" style="width:10rem;">Price:</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="0" readonly>
-                            </div>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" style="width:10rem;">Claim Amount:</span>
-                                </div>
-                                <input type="text" class="form-control text-center" placeholder="0" readonly aria-label="Claim Amount" aria-describedby="basic-addon2">
-                            </div>
-                        </li>
-                    </ul>
                 </div>
-            </div>
 
-            <div class="col-6" style="margin-bottom:2rem;">
-                <div class="card">
-                    <img class="card-img-top backgroundScale" src="../images/calendar.jpg" alt="Card image cap" style="height:20vh;width:auto">
-                    <div class="card-body">
-                        <h5 class="card-title">Pen</h5>
-                        <p class="card-text">this is a red Pen</p>
+                <div class="col-6" style="margin-bottom:2rem;">
+                    <div class="card">
+                        <img class="card-img-top backgroundScale" src="../images/calendar.jpg" alt="Card image cap" style="height:20vh;width:auto">
+                        <div class="card-body">
+                            <h5 class="card-title">Pen</h5>
+                            <p class="card-text">this is a red Pen</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="input-group" style="margin-bottom:0.5rem;">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width:10rem;">Price:</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="0" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width:10rem;">Claim Amount:</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="0" readonly aria-label="Claim Amount" aria-describedby="basic-addon2">
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <div class="input-group" style="margin-bottom:0.5rem;">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" style="width:10rem;">Price:</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="0" readonly>
-                            </div>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" style="width:10rem;">Claim Amount:</span>
-                                </div>
-                                <input type="text" class="form-control text-center" placeholder="0" readonly aria-label="Claim Amount" aria-describedby="basic-addon2">
-                            </div>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
-    </div>
-</ng-template>
-
-<h2 class="text-center">Order History</h2>
-
-<div class="row justify-content-center">
-    <div class="col-10">
-        <div style="margin-bottom:3vh;">
-            <button type="button" class="btn btn-outline-success">Search</button>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
         </div>
+    </ng-template>
 
-        <table class="table table-bordered table-striped table-hover">
-            <thead class="thead-primary">
-                <tr>
-                    <th scope="col" class="text-center">Order ID</th>
-                    <th scope="col">Employee</th>
-                    <th scope="col">Cost</th>
-                    <th scope="col">Application Date</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Detail</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>1</th>
-                    <th>jack</th>
-                    <th>30</th>
-                    <th>2018-3-30</th>
-                    <th><p class="text-success">Claimed</p></th>
-                    <th><button type="button" class="btn btn-outline-success" (click)="checkOrderDetail(orderDetail)">Go</button></th>
-                </tr>
-                <tr>
-                    <th>1</th>
-                    <th>jack</th>
-                    <th>20</th>
-                    <th>2018-3-30</th>
-                    <th><p class="text-warning">UnClaimed</p></th>
-                    <th><button type="button" class="btn btn-outline-success" (click)="checkOrderDetail(orderDetail)">Go</button></th>
-                </tr>
-            </tbody>
-        </table>
+    <h2 class="text-center">Order History</h2>
 
-        <!--pagination-->
-        <ngb-pagination class="d-flex justify-content-center" [collectionSize]="120" [pageSize]="12" [(page)]="curentPage" [maxSize]="5" [boundaryLinks]="true" size="lg"></ngb-pagination>
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div style="margin-bottom:3vh;">
+                <button type="button" class="btn btn-outline-success">Search</button>
+            </div>
+
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-primary">
+                    <tr>
+                        <th scope="col" class="text-center">Order ID</th>
+                        <th scope="col">Employee</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Application Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th>
+                        <th>jack</th>
+                        <th>30</th>
+                        <th>2018-3-30</th>
+                        <th><p class="text-success">Claimed</p></th>
+                        <th><button type="button" class="btn btn-outline-success" (click)="checkOrderDetail(orderDetail)">Go</button></th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>jack</th>
+                        <th>20</th>
+                        <th>2018-3-30</th>
+                        <th><p class="text-warning">UnClaimed</p></th>
+                        <th><button type="button" class="btn btn-outline-success" (click)="checkOrderDetail(orderDetail)">Go</button></th>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--pagination-->
+            <ngb-pagination class="d-flex justify-content-center" [collectionSize]="120" [pageSize]="12" [(page)]="curentPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" size="lg"></ngb-pagination>
+        </div>
     </div>
 </div>
+<site-footer></site-footer>
