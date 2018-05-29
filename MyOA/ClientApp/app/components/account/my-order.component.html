@@ -111,6 +111,12 @@
                     </ul>
                 </div>
             </div>
+
+            <div>
+                <blockquote class="blockquote">
+                    <p class="mb-0">The total cost is <strong>30$</strong> by <strong>4</strong> items</p>
+                </blockquote>
+            </div>
         </div>
     </div>
     <div class="modal-footer">
@@ -123,15 +129,13 @@
 
     <div class="row justify-content-center">
         <div class="col-10">
-            <div style="margin-bottom:3vh;">
-                <button type="button" class="btn btn-outline-success">Search</button>
-            </div>
-
             <table class="table table-bordered table-striped table-hover">
                 <thead class="thead-primary">
                     <tr>
                         <th scope="col" class="text-center">Order ID</th>
-                        <th scope="col">Employee</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">NTID</th>
+                        <th scope="col">Type</th>
                         <th scope="col">Cost</th>
                         <th scope="col">Application Date</th>
                         <th scope="col">Status</th>
@@ -141,16 +145,20 @@
                 <tbody>
                     <tr>
                         <th>1</th>
-                        <th>jack</th>
-                        <th>30</th>
+                        <th>Jack</th>
+                        <th>JC01</th>
+                        <th>Employee</th>
+                        <th>20$</th>
                         <th>2018-3-30</th>
                         <th><p class="text-success">Claimed</p></th>
                         <th><button type="button" class="btn btn-outline-success" (click)="checkOrderDetail(orderDetail)">Go</button></th>
                     </tr>
                     <tr>
                         <th>1</th>
-                        <th>jack</th>
-                        <th>20</th>
+                        <th>Mike</th>
+                        <th>MK04</th>
+                        <th>Team Group</th>
+                        <th>25$</th>
                         <th>2018-3-30</th>
                         <th><p class="text-warning">UnClaimed</p></th>
                         <th><button type="button" class="btn btn-outline-success" (click)="checkOrderDetail(orderDetail)">Go</button></th>

@@ -126,6 +126,12 @@
                         </div>
                     </div>
                 </div>
+
+                <div>
+                    <blockquote class="blockquote">
+                        <p class="mb-0">The total cost is <strong>30$</strong> by <strong>4</strong> items</p>
+                    </blockquote>
+                </div>
             </div>
         </div>
         <div class="modal-footer">
@@ -135,16 +141,48 @@
     </ng-template>
 
     <div class="row justify-content-center">
-        <div class="col-10">
-            <div style="margin-bottom:3vh;">
+        <div class="col-10" style="background-color:lavenderblush;">
+            <form>
+                <div class="form-row">
+                    <!--NTID-->
+                    <div class="form-group col-4">
+                        <label for="iptNTID" class="col-form-label">NTID</label>
+                        <input id="iptNTID" type="text" class="form-control" placeholder="NTID"
+                               [(ngModel)]="model" [ngbTypeahead]="search"
+                               (focus)="focus$.next($event.target.value)"
+                               (click)="click$.next($event.target.value)"
+                               #instance="ngbTypeahead" />
+                    </div>
+                    <!--Type-->
+                    <div class="form-group col-4">
+                        <label for="iptState" class="col-form-label">Type</label>
+                        <select id="iptState" class="form-control">
+                            <option selected>Choose Type...</option>
+                            <option>Employee</option>
+                            <option>Team Group</option>
+                        </select>
+                    </div>
+                    <!--Email-->
+                    <div class="form-group col-4">
+                        <label for="iptEmail" class="col-form-label">Email</label>
+                        <input id="iptEmail" type="email" class="form-control" placeholder="Email" />
+                    </div>
+                </div>
+            </form>
+            <div style="margin-bottom:2vh;">
                 <button type="button" class="btn btn-outline-success">Search</button>
             </div>
+        </div>
 
+        <div class="col-10" style="padding-left:0;padding-right:0;margin-top:10px;">
             <table class="table table-bordered table-striped table-hover">
                 <thead class="thead-primary">
                     <tr>
                         <th scope="col" class="text-center">Order ID</th>
-                        <th scope="col">Employee</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">NTID</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Cost</th>
                         <th scope="col">Application Date</th>
                         <th scope="col">Status</th>
                         <th scope="col"></th>
@@ -153,14 +191,20 @@
                 <tbody>
                     <tr>
                         <th>1</th>
-                        <th>jack</th>
+                        <th>Jack</th>
+                        <th>JC01</th>
+                        <th>Employee</th>
+                        <th>20$</th>
                         <th>2018-3-30</th>
                         <th><p class="text-success">Claimed</p></th>
                         <th><button type="button" class="btn btn-outline-success" (click)="claimStationary(orderDetail)">Claim</button></th>
                     </tr>
                     <tr>
                         <th>1</th>
-                        <th>jack</th>
+                        <th>Mike</th>
+                        <th>MK04</th>
+                        <th>Team Group</th>
+                        <th>25$</th>
                         <th>2018-3-30</th>
                         <th><p class="text-warning">UnClaimed</p></th>
                         <th><button type="button" class="btn btn-outline-success" (click)="claimStationary(orderDetail)">Claim</button></th>

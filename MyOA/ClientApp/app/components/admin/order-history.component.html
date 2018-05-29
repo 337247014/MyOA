@@ -112,6 +112,12 @@
                         </ul>
                     </div>
                 </div>
+
+                <div>
+                    <blockquote class="blockquote">
+                        <p class="mb-0">The total cost is <strong>30$</strong> by <strong>4</strong> items</p>
+                    </blockquote>
+                </div>
             </div>
         </div>
         <div class="modal-footer">
@@ -122,44 +128,167 @@
     <h2 class="text-center">Order History</h2>
 
     <div class="row justify-content-center">
-        <div class="col-10">
-            <div style="margin-bottom:3vh;">
+        <div class="col-10" style="background-color:lavenderblush;">
+            <form>
+                <div class="form-row">
+                    <!--Team-->
+                    <div class="form-group col-4">
+                        <label for="iptTeam" class="col-form-label">Organization</label>
+                        <select id="iptTeam" class="form-control">
+                            <option selected>Choose Organization...</option>
+                            <option>RTR</option>
+                            <option>I2P</option>
+                            <option>OTC</option>
+                            <option>DS CoE</option>
+                            <option>ICO</option>
+                            <option>IFP</option>
+                            <option>RM&C</option>
+                        </select>
+                    </div>
+                    <!--Type-->
+                    <div class="form-group col-4">
+                        <label for="iptState" class="col-form-label">Type</label>
+                        <select id="iptState" class="form-control">
+                            <option selected>Choose Type...</option>
+                            <option>Employee</option>
+                            <option>Team Group</option>
+                        </select>
+                    </div>
+                    <!--NTID-->
+                    <div class="form-group col-4">
+                        <label for="iptNTID" class="col-form-label">NTID</label>
+                        <input id="iptNTID" type="text" class="form-control" placeholder="NTID"
+                               [(ngModel)]="NTIDS" [ngbTypeahead]="search"
+                               (focus)="focus$.next($event.target.value)"
+                               (click)="click$.next($event.target.value)"
+                               #instance="ngbTypeahead" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <!--From Date-->
+                    <div class="form-group col-4">
+                        <label for="iptFromDate" class="col-form-label">From</label>
+                        <div class="input-group">
+                            <input class="form-control" placeholder="yyyy-mm-dd"
+                                   name="iptFromDate" [(ngModel)]="fromDate" ngbDatepicker #FDate="ngbDatepicker">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" (click)="FDate.toggle()" type="button">
+                                    <img src="../images/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--To Date-->
+                    <div class="form-group col-4">
+                        <label for="iptToDate" class="col-form-label">From</label>
+                        <div class="input-group">
+                            <input class="form-control" placeholder="yyyy-mm-dd"
+                                   name="iptToDate" [(ngModel)]="toDate" ngbDatepicker #TDate="ngbDatepicker">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" (click)="TDate.toggle()" type="button">
+                                    <img src="../images/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div style="margin-bottom:2vh;">
                 <button type="button" class="btn btn-outline-success">Search</button>
+                <button type="button" class="btn btn-outline-success float-right">Export Excel</button>
             </div>
+        </div>
+        
+        <div class="col-10" style="margin-top:10px;">
+            <ngb-tabset>
+                <ngb-tab title="Order List">
+                    <ng-template ngbTabContent>
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead class="thead-primary">
+                                <tr>
+                                    <th scope="col" class="text-center">Order ID</th>
+                                    <th scope="col">User Name</th>
+                                    <th scope="col">NTID</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Organization</th>
+                                    <th scope="col">Cost</th>
+                                    <th scope="col">Application Date</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Detail</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>1</th>
+                                    <th>jack</th>
+                                    <th>JC01</th>
+                                    <th>Employee</th>
+                                    <th>ICO</th>
+                                    <th>20$</th>
+                                    <th>2018-3-30</th>
+                                    <th><p class="text-success">Claimed</p></th>
+                                    <th><button type="button" class="btn btn-outline-success" (click)="checkOrderDetail(orderDetail)">Go</button></th>
+                                </tr>
+                                <tr>
+                                    <th>1</th>
+                                    <th>Mike</th>
+                                    <th>MK04</th>
+                                    <th>Team Group</th>
+                                    <th>OTC</th>
+                                    <th>25$</th>
+                                    <th>2018-3-30</th>
+                                    <th><p class="text-warning">UnClaimed</p></th>
+                                    <th><button type="button" class="btn btn-outline-success" (click)="checkOrderDetail(orderDetail)">Go</button></th>
+                                </tr>
+                            </tbody>
+                        </table>
 
-            <table class="table table-bordered table-striped table-hover">
-                <thead class="thead-primary">
-                    <tr>
-                        <th scope="col" class="text-center">Order ID</th>
-                        <th scope="col">Employee</th>
-                        <th scope="col">Cost</th>
-                        <th scope="col">Application Date</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Detail</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>1</th>
-                        <th>jack</th>
-                        <th>30</th>
-                        <th>2018-3-30</th>
-                        <th><p class="text-success">Claimed</p></th>
-                        <th><button type="button" class="btn btn-outline-success" (click)="checkOrderDetail(orderDetail)">Go</button></th>
-                    </tr>
-                    <tr>
-                        <th>1</th>
-                        <th>jack</th>
-                        <th>20</th>
-                        <th>2018-3-30</th>
-                        <th><p class="text-warning">UnClaimed</p></th>
-                        <th><button type="button" class="btn btn-outline-success" (click)="checkOrderDetail(orderDetail)">Go</button></th>
-                    </tr>
-                </tbody>
-            </table>
+                        <!--pagination-->
+                        <ngb-pagination class="d-flex justify-content-center" [collectionSize]="120" [pageSize]="12" [(page)]="curentPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" size="lg"></ngb-pagination>
+                    </ng-template>
+                </ngb-tab>
 
-            <!--pagination-->
-            <ngb-pagination class="d-flex justify-content-center" [collectionSize]="120" [pageSize]="12" [(page)]="curentPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" size="lg"></ngb-pagination>
+                <ngb-tab title="Figure">
+                    <ng-template ngbTabContent>
+                        <div class="row">
+                            <div class="col-8" style="background-color:lightgrey">
+                                <div><p class="title">Cost Run Chart</p></div>
+                            </div>
+                            <div class="col-4">
+                                <div><p class="title">Current Month Cost of Team</p></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8" style="background-color:lightgrey">
+                                <div style="display: block;">
+                                    <canvas baseChart
+                                            [datasets]="lineChartData"
+                                            [labels]="lineChartLabels"
+                                            [options]="lineChartOptions"
+                                            [legend]="lineChartLegend"
+                                            [chartType]="lineChartType"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="col-4 align-self-center">
+                                <div style="display: block">
+                                    <canvas baseChart
+                                            [datasets]="barChartData"
+                                            [labels]="barChartLabels"
+                                            [options]="barChartOptions"
+                                            [legend]="barChartLegend"
+                                            [chartType]="barChartType"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                        </div>
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
         </div>
     </div>
 </div>
